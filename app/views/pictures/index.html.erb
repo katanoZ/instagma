@@ -10,5 +10,15 @@
   <%= link_to "投稿を編集する", edit_picture_path(picture.id) %>
   <%= link_to "投稿を削除する", picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか？" } %>
 <% end %>
+<% urls = flicker_urls %>
+<% urls.each do |url| %>
+  <p>タイトル：test</p>
+  <p>作成者:test</p>
+  <div class="field">
+    <%= image_tag(url) %>
+  </div>
+  <p>内容：test</p>
+<% end %>
+
 <br>
 <%= link_to "画像を投稿する", new_picture_path %>
