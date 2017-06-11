@@ -17,6 +17,11 @@
   <%= f.label :content %>
   <%= f.text_field :content %>
   <br>
+  <%= image_tag @picture.image.thumb.url if @picture.image? %>
+  <br>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br>
   <%= f.submit %>
 <% end %>
 <%= link_to "画像一覧画面に戻る", pictures_path %>

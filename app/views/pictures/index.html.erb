@@ -3,6 +3,9 @@
 <% @pictures.each do |picture| %>
   <p>タイトル：<%= picture.title %></p>
   <p>作成者:<%= picture.user.name %></p>
+  <div class="field">
+    <%= picture_img(picture) if picture_img(picture) %>
+  </div>
   <p>内容：<%= picture.content %></p>
   <%= link_to "投稿を編集する", edit_picture_path(picture.id) %>
   <%= link_to "投稿を削除する", picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか？" } %>
