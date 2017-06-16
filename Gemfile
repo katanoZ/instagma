@@ -67,3 +67,5 @@ gem "carrierwave"
 gem "rmagick"
 
 gem "flickraw"
+
+gem "twitter-bootstrap-rails"

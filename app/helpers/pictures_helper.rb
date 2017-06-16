@@ -4,8 +4,6 @@ require 'flickraw'
 Dotenv.load
 FlickRaw.api_key = ENV["FLICKER_API_KEY"]
 FlickRaw.shared_secret = ENV["FLICKER_API_SECRET"]
-#FlickRaw.api_key = "FLICKER_API_KEY"
-#FlickRaw.shared_secret = "FLICKER_API_SECRET"
 
   def flicker_urls
   # tag:  検索タグ。
