@@ -69,3 +69,5 @@ gem "rmagick"
 gem "flickraw"
 
 gem "twitter-bootstrap-rails"
+
+gem "jquery-turbolinks"

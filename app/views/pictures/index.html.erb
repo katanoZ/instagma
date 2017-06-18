@@ -1,4 +1,25 @@
 <p class = "flash"><%= notice %><%= alert %></p>
+
+<% urls = flicker_urls %>
+<% urls.each do |url| %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">test title</h2>
+      <p class="text-right">投稿者:野良くま</p>
+    </div>
+    <div class="panel-body padding10px">
+      <div class="field text-center">
+        <%= image_tag(url) %>
+      </div>
+    </div>
+    <div class="panel-footer">
+        <p>くまくまくまくまくまくま</p>
+    </div>
+  </div>
+
+<% end %>
+
 <% @pictures.each do |picture| %>
 
   <div class="panel panel-default">
@@ -20,22 +41,8 @@
 
 <% end %>
 
-<% urls = flicker_urls %>
-<% urls.each do |url| %>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2 class="panel-title">test title</h2>
-      <p class="text-right">投稿者:野良くま</p>
-    </div>
-    <div class="panel-body padding10px">
-      <div class="field text-center">
-        <%= image_tag(url) %>
-      </div>
-    </div>
-    <div class="panel-footer">
-        <p>くまくまくまくまくまくま</p>
-    </div>
+<section>
+  <div id="page-top-btn" class="page-top-btn">
+      <p><a class="move-page-top" id="move-page-top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▲</a></p>
   </div>
-
-<% end %>
+</section>
