@@ -7,27 +7,36 @@
 
 <%= form_for(@picture) do |f| %>
   <% if @picture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
-      <ul>
-        <% @picture.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <div class="form-group alert alert-danger">
+      <div id="error_explanation">
+        <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
+        <ul>
+          <% @picture.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
   <br>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
   <br>
-  <%= image_tag @picture.image.thumb.url if @picture.image? %>
+  <div class="form-group">
+    <%= image_tag @picture.image.thumb.url if @picture.image? %>
+    <br>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
   <br>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <br>
-  <%= f.submit %>
+  <%= f.submit "投稿する", class: "btn btn-primary hidden-xs"%>
+  <%= f.submit "投稿する", class: "btn btn-primary btn-block visible-xs"%>
 <% end %>
+<br>
 <%= link_to "画像一覧画面に戻る", pictures_path %>
