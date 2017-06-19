@@ -20,11 +20,11 @@
         <strong><em><a href="/" class="navbar-brand"><span class="glyphicon glyphicon-camera"></span> Instagma</a></em></strong>
       </div>
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav text-center">
           <li><a href="/pictures"><span class="glyphicon glyphicon-th-large"></span> 画像一覧</a></li>
           <li><a href="/pictures/new"><span class="glyphicon glyphicon-upload"></span> 画像投稿</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right  text-center">
           <% if user_signed_in? %>
             <li><%= link_to 'マイページ', edit_user_registration_path %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
