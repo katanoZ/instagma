@@ -1,4 +1,10 @@
-<p id = "notice"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-info alert-dismissible">
+    <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <p><%= notice %><%= alert %></p>
+  </div>
+<% end %>
+
 <%= form_for(@picture) do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">

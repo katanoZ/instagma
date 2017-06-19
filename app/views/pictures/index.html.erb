@@ -1,4 +1,9 @@
-<p class = "flash"><%= notice %><%= alert %></p>
+<% if notice %>
+  <div class="alert alert-success alert-dismissible">
+    <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <p><%= notice %><%= alert %></p>
+  </div>
+<% end %>
 
 <% urls = flicker_urls %>
 <% urls.each do |url| %>
