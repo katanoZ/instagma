@@ -41,9 +41,18 @@
       </div>
     </div>
     <div class="panel-footer">
-      <p><%= profile_img(picture.user, "small") if profile_img(picture.user) %>  <%= picture.content %></p>
-      <%= link_to "投稿を編集する", edit_picture_path(picture.id) %>
-      <%= link_to "投稿を削除する", picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか？" } %>
+      <p><%= profile_img(picture.user, "small") if profile_img(picture.user) %>&nbsp;&nbsp;&nbsp;<%= picture.content %></p>
+      <% if current_user == picture.user %>
+        <div class="hidden-xs text-right">
+          <%= link_to "投稿を編集する", edit_picture_path(picture.id), class: "btn btn-success" %>
+          <%= link_to "投稿を削除する", picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか？" }, class: "btn btn-danger" %>
+        </div>
+        <div class="visible-xs">
+          <%= link_to "投稿を編集する", edit_picture_path(picture.id), class: "btn btn-success btn-block" %>
+          <div class="padding3px"></div>
+          <%= link_to "投稿を削除する", picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか？" }, class: "btn  btn-danger btn-block" %>
+        </div>
+      <% end %>
     </div>
   </div>
 
