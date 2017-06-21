@@ -1,13 +1,30 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible">
+  <div class="alert alert-info alert-dismissible container">
     <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <p><%= notice %><%= alert %></p>
   </div>
 <% end %>
 
-<h1>Top#index</h1>
-<p>Find me in app/views/top/index.html.erb</p>
-<p>仮のトップページです</p>
-<ul>
-  <li><%= link_to "画像一覧", pictures_path %></li>
-</ul>
+<div class="container">
+  <div class="well">
+    <div class="row">
+        <div class="col-xs-12 col-sm-5">
+            <img src="<%= asset_path "kuma_top" %>" class="img-responsive img-rounded visible-lg">
+            <img src="<%= asset_path "kuma_top" %>" class="img-responsive img-rounded center-block hidden-lg">
+        </div>
+        <div class="col-xs-12 col-sm-7">
+            <h1 class="top-h1 text-center">
+                <div class="hidden-xs top-margin01"></div>
+                <strong><em><span class="glyphicon glyphicon-camera"></span> Instagma</em></strong><br>
+                <br>
+                <small>くまの画像をチェックしよう</small>
+            </h1>
+        </div>
+    </div>
+  </div>
+  <div class="top-margin02  text-center">
+      <p>誰でも画像を投稿できる掲示板です。ただし、</p>
+      <p><strong>くまが画像を投稿することがあります。</strong></p>
+      <p><strong>くまが画像にコメントをすることがあります。</strong></p>
+  </div>
+</div>

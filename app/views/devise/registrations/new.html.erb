@@ -23,7 +23,7 @@
   <div class="field form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>( ※ 最小<%= @minimum_password_length %>文字必須 )</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
   </div>
