@@ -5,21 +5,22 @@
   </div>
 <% end %>
 
-<% urls = flicker_urls %>
-<% urls.each do |url| %>
+<% images = flicker_images %>
+<% images.each do |image| %>
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title">test title</h2>
-      <p class="text-right">投稿者:野良くま</p>
+      <h2 class="panel-title"><%= image.title %></h2>
+      <% posting_kuma = kuma %>
+      <p class="text-right">投稿者:<%= posting_kuma[:name] %>  <%= Time.now %></p>
     </div>
     <div class="panel-body padding10px">
       <div class="field text-center">
-        <%= image_tag(url) %>
+        <%= image_tag(FlickRaw.url image) %>
       </div>
     </div>
     <div class="panel-footer">
-        <p>くまくまくまくまくまくま</p>
+        <p><%= posting_kuma[:word] %></p>
     </div>
   </div>
 
@@ -30,7 +31,9 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h2 class="panel-title"><%= picture.title %></h2>
-      <p class="text-right">投稿者:<%= picture.user.name %>  <%= picture.created_at %></p>
+      <p class="text-right">
+        投稿者:<%= picture.user.name %>  <%= picture.created_at %>
+      </p>
     </div>
     <div class="panel-body padding10px">
       <div class="field text-center">
@@ -38,7 +41,7 @@
       </div>
     </div>
     <div class="panel-footer">
-      <p><%= picture.content %></p>
+      <p><%= profile_img(picture.user, "small") if profile_img(picture.user) %>  <%= picture.content %></p>
       <%= link_to "投稿を編集する", edit_picture_path(picture.id) %>
       <%= link_to "投稿を削除する", picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか？" } %>
     </div>
