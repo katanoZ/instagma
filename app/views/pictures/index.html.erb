@@ -20,7 +20,12 @@
       </div>
     </div>
     <div class="panel-footer">
-        <p><%= posting_kuma[:word] %></p>
+        <p>
+          <%= kuma_thumbnail(posting_kuma[:image], posting_kuma[:name]) %>&nbsp;&nbsp;
+          <strong><%= posting_kuma[:name] %></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="visible-xs"><br></span>
+          <%= posting_kuma[:word] %>
+        </p>
     </div>
   </div>
 
@@ -41,7 +46,12 @@
       </div>
     </div>
     <div class="panel-footer">
-      <p><%= profile_img(picture.user, "small") if profile_img(picture.user) %>&nbsp;&nbsp;&nbsp;<%= picture.content %></p>
+      <p>
+        <%= profile_img(picture.user, "small") if profile_img(picture.user) %>&nbsp;&nbsp;
+        <strong><%= picture.user.name %></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="visible-xs"><br></span>
+        <%= picture.content %>
+      </p>
       <% if current_user == picture.user %>
         <div class="hidden-xs text-right">
           <%= link_to "投稿を編集する", edit_picture_path(picture.id), class: "btn btn-success" %>

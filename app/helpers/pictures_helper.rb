@@ -48,15 +48,18 @@ FlickRaw.shared_secret = ENV["FLICKER_API_SECRET"]
   end
 
   def kuma
-    kuma_names = %W(白くま 黒くま 野良くま こぐま 大隈重信 ツキノワグマ グリズリー ヒグマ マレーグマ メガネグマ アメリカグマ ナマケグマ ジャイアントパンダ 鬼熊 通りすがりのくま)
+    kuma_names = %W(白くま 黒くま 野良くま こぐま 大隈重信 紳士的なくま 目つきの悪いくま ヒグマ 眠いくま 茶くま アメリカグマ ジャイアントパンダ 鬼熊 通りすがりのくま)
     kuma_words01 = %W(この画像は この人は あなたは くま会議で くまも歩けば 今日も一日 今日は いつものように この場所は この日はずっと 見れば見るほど よい画像なので この画像を見て)
-    kuma_words02 = %W(たのしい ねむい おいしい おもしろい おそろしい かなしい うれしい おいしそう おなかがへった 踊りたい 食べたい 逃げたい 歌をうたう ダンスダンスダンス クマトルネード 冬眠する くまごはん 転がり続ける)
+    kuma_words02 = %W(たのしい ねむい おいしい おもしろい おそろしい かなしい うれしい おいしそう おなかがへった 踊りたい 食べたい 逃げたい 歌をうたう ダンスダンスダンス クマトルネード 冬眠する くまごはん 転がり続ける めでたい)
     kuma_words03 = %W|くま くま？ くま！ くまー くまっ くまーーー くまʕ•ᴥ•ʔ くま(ᵔᴥᵔ) くま(￣(工)￣) くまままま・・・ くまくま！ く、くまー|
+    kuma_images = [asset_path("kuma00"), asset_path("kuma01"), asset_path("kuma02"), asset_path("kuma03"), asset_path("kuma04"), asset_path("kuma05"), asset_path("kuma06"), asset_path("kuma07"), asset_path("kuma08"), asset_path("kuma09"), asset_path("kuma10"), asset_path("kuma11"), asset_path("kuma12"), asset_path("kuma13")]
 
     random = Random.new
-    kuma_name = kuma_names[random.rand(kuma_names.length)]
+    kuma_number = random.rand(kuma_names.length)
+    kuma_name = kuma_names[kuma_number]
     kuma_word = kuma_words01[random.rand(kuma_words01.length)] + kuma_words02[random.rand(kuma_words02.length)] + kuma_words03[random.rand(kuma_words03.length)]
-    return_kuma = {name: kuma_name, word: kuma_word}
+    kuma_image = kuma_images[kuma_number]
+    return_kuma = {name: kuma_name, word: kuma_word, image: kuma_image}
   end
 
   def profile_img(user, size = "")
@@ -84,4 +87,7 @@ FlickRaw.shared_secret = ENV["FLICKER_API_SECRET"]
     end
   end
 
+  def kuma_thumbnail(image, name)
+    image_tag(image, alt: name, size: "55x55", class: "img-circle")
+  end
 end
