@@ -22,7 +22,7 @@
     <div class="panel-footer">
         <p>
           <%= kuma_thumbnail(posting_kuma[:image], posting_kuma[:name]) %>&nbsp;&nbsp;
-          <strong><%= posting_kuma[:name] %></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+          <strong><%= posting_kuma[:name] %></strong>&nbsp;&nbsp;&nbsp;
           <span class="visible-xs"><br></span>
           <%= posting_kuma[:word] %>
         </p>
@@ -48,7 +48,7 @@
     <div class="panel-footer">
       <p>
         <%= profile_img(picture.user, "small") if profile_img(picture.user) %>&nbsp;&nbsp;
-        <strong><%= picture.user.name %></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+        <strong><%= picture.user.name %></strong>&nbsp;&nbsp;&nbsp;
         <span class="visible-xs"><br></span>
         <%= picture.content %>
       </p>
@@ -63,6 +63,22 @@
           <%= link_to "投稿を削除する", picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか？" }, class: "btn  btn-danger btn-block" %>
         </div>
       <% end %>
+      <p>
+        <% comment_size = rand(4) %>
+        <% if comment_size == 0 %>
+          （コメントはありません）
+        <% else %>
+          （コメント）
+        <% end %>
+        <% comment_size.times do %>
+          <% comment_kuma = kuma %>
+          <br>
+          <strong><%= comment_kuma[:name] %></strong>&nbsp;&nbsp;&nbsp;
+          <%= comment_kuma[:word] %>
+        <% end %>
+      </p>
+
+
     </div>
   </div>
 
