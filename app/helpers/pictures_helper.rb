@@ -1,9 +1,8 @@
 module PicturesHelper
 
 require 'flickraw'
-unless Rails.env.production?
-  Dotenv.load
-end
+
+Dotenv.load unless Rails.env.production?
 FlickRaw.api_key = ENV["FLICKER_API_KEY"]
 FlickRaw.shared_secret = ENV["FLICKER_API_SECRET"]
 
